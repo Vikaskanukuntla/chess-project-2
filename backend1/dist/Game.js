@@ -39,32 +39,29 @@ export class Game {
             return;
         }
         if (this.board.isGameOver()) {
+            const winner = this.board.turn() === "w" ? "black" : "white";
             this.player1.send(JSON.stringify({
                 type: GAME_OVER,
-                payload: {
-                    winner: this.board.turn() === "w" ? "black" : "white"
-                }
+                payload: { winner }
             }));
             this.player2.send(JSON.stringify({
                 type: GAME_OVER,
-                payload: {
-                    winner: this.board.turn() === "w" ? "black" : "white"
-                }
+                payload: { winner }
             }));
             return;
         }
-        if (this.board.moves.length % 2 === 0) {
-            this.player2.send(JSON.stringify({
-                type: MOVE,
-                payload: move
-            }));
-        }
-        else {
-            this.player1.send(JSON.stringify({
-                type: MOVE,
-                payload: move
-            }));
-        }
+        this.player1.send(JSON.stringify({
+            type: MOVE,
+            payload: {
+                move
+            }
+        }));
+        this.player2.send(JSON.stringify({
+            type: MOVE,
+            payload: {
+                move
+            }
+        }));
     }
 }
 //# sourceMappingURL=Game.js.map

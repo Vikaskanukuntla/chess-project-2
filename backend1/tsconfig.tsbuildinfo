@@ -1,1 +1,1 @@
-{"root":["./src/game.ts","./src/gamemanager.ts","./src/index.ts","./src/messages.ts"],"version":"5.9.3"}
+{"root":["./src/game.ts","./src/gamemanager.ts","./src/index.ts","./src/messages.ts","./src/db/db.ts","./src/middlewares/authmiddleware.ts","./src/models/user.ts","./src/route/auth.ts","./src/route/signin.ts","./src/route/signup.ts"],"version":"5.9.3"}
